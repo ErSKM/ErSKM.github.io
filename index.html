@@ -652,6 +652,28 @@
       .reveal { opacity:1; transform:none; }
     }
   </style>
+
+  <!-- Privacy-conscious analytics: add your GA4 Measurement ID below to enable tracking.
+       Do not send names, email addresses, phone numbers, IP addresses, or other PII as custom parameters. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.portfolioAnalytics = function(eventName, params) {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params || {});
+    };
+    (function(){
+      const GA_MEASUREMENT_ID = "";
+      window.__GA_MEASUREMENT_ID = GA_MEASUREMENT_ID;
+      if (!GA_MEASUREMENT_ID || !/^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID)) return;
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_MEASUREMENT_ID);
+      document.head.appendChild(s);
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
+    })();
+  </script>
+
 </head>
 
 <body>
@@ -700,7 +722,7 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">Explore My Work ↘</a>
-            <a class="btn btn-outline" href="Salahuddin_KM_Data_Analyst_Resume.pdf" target="_blank" rel="noopener">View Resume ↗</a>
+            <a class="btn btn-outline" href="resume.html" target="_blank" rel="noopener">View Resume ↗</a>
             <a class="btn btn-outline" href="https://github.com/ErSKM" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
 
@@ -1157,7 +1179,12 @@
     </section>
   </main>
 
-  <footer>
+  
+  <div style="text-align:center;padding:10px 5vw;font-size:.58rem;color:var(--hero-muted);background:var(--hero-surface);border-top:1px solid var(--hero-border);">
+    Privacy note: portfolio analytics, when enabled, are used only to understand site engagement. No names, phone numbers, email addresses or other personal details are sent as analytics parameters.
+  </div>
+
+<footer>
     <div class="container footer-inner">
       <span>© 2026 Salahuddin K M</span>
       <span class="mono">Data Analyst · Kerala, India</span>
@@ -1265,5 +1292,37 @@
       }
     });
   </script>
+
+<script>
+  // Privacy-friendly interaction tracking. Only labels/categories are sent; never personal details.
+  (function(){
+    function trackLink(el) {
+      const href = (el.getAttribute("href") || "").toLowerCase();
+      const text = (el.textContent || "").trim().toLowerCase();
+      if (href.includes("resume.html")) {
+        window.portfolioAnalytics("resume_view", {location: el.closest("section")?.id || "unknown"});
+      } else if (href.includes("linkedin.com")) {
+        window.portfolioAnalytics("linkedin_click", {location: el.closest("section")?.id || "unknown"});
+      } else if (href.includes("github.com")) {
+        const repo = href.split("github.com/")[1] || "";
+        window.portfolioAnalytics("github_click", {target: repo.replace(/\/$/, "")});
+      } else if (href.startsWith("mailto:")) {
+        window.portfolioAnalytics("email_click");
+      }
+    }
+    document.querySelectorAll('a[href]').forEach(a => {
+      a.addEventListener("click", function(){ trackLink(this); }, {passive:true});
+    });
+
+    document.querySelectorAll(".pcard .plink").forEach(a => {
+      a.addEventListener("click", function(){
+        const card = this.closest(".pcard");
+        const title = card?.querySelector(".ptitle")?.textContent?.trim();
+        if (title) window.portfolioAnalytics("project_click", {project: title});
+      }, {passive:true});
+    });
+  })();
+</script>
+
 </body>
 </html>

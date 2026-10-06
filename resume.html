@@ -20,7 +20,18 @@ button{border:0;background:var(--blue);color:#fff;padding:8px 12px;border-radius
 @media print{body{background:#fff}main{box-shadow:none;margin:0;max-width:none;padding:20px 26px}.toolbar{display:none}}
 @media(max-width:700px){main{margin:0;padding:28px 20px}.jobhead{flex-direction:column;gap:2px}}
 </style>
-</head>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.portfolioAnalytics=function(eventName,params){if(typeof window.gtag==="function")window.gtag("event",eventName,params||{});};
+(function(){
+  const GA_MEASUREMENT_ID = "";
+  if(!GA_MEASUREMENT_ID || !/^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID)) return;
+  const s=document.createElement("script"); s.async=true;
+  s.src="https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(GA_MEASUREMENT_ID);
+  document.head.appendChild(s); gtag("js",new Date()); gtag("config",GA_MEASUREMENT_ID,{anonymize_ip:true});
+})();
+</script></head>
 <body>
 <main>
   <div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button></div>
@@ -62,5 +73,15 @@ button{border:0;background:var(--blue);color:#fff;padding:8px 12px;border-radius
   <p>Google Data Analytics Professional Certificate — Google / Coursera | Feb 2026</p>
   <p>Data Analytics Virtual Job Simulation — Deloitte Australia / Forage | Oct 2025</p>
 </main>
+<script>
+document.querySelectorAll("a[href]").forEach(a=>{
+  a.addEventListener("click",()=>{
+    const href=(a.getAttribute("href")||"").toLowerCase();
+    if(href.includes("linkedin.com")) window.portfolioAnalytics("linkedin_click",{location:"resume"});
+    else if(href.includes("github.com")) window.portfolioAnalytics("github_click",{location:"resume"});
+    else if(href.startsWith("mailto:")) window.portfolioAnalytics("email_click",{location:"resume"});
+  },{passive:true});
+});
+</script>
 </body>
 </html>

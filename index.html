@@ -441,43 +441,28 @@
     .project.featured { grid-column:span 2; }
     .project-visual {
       position:relative; min-height:150px; overflow:hidden;
-      padding:15px; color:#fff;
-      background:
-        radial-gradient(circle at 15% 20%,rgba(96,165,250,.24),transparent 28%),
-        radial-gradient(circle at 85% 15%,rgba(103,232,249,.16),transparent 25%),
-        linear-gradient(135deg,#111c2c,#0c1420);
+      padding:15px; color:#fff; background:#0c1420;
       border-bottom:1px solid rgba(255,255,255,.08);
     }
     .project.featured .project-visual { min-height:185px; }
-    .visual-kicker { color:#8ea4be; font:500 .52rem "DM Mono",monospace; text-transform:uppercase; letter-spacing:.1em; }
+    .project-thumbnail {
+      position:absolute; inset:0; z-index:0;
+      width:100%; height:100%; object-fit:cover; object-position:center;
+    }
+    .project-visual::after {
+      content:""; position:absolute; inset:0; z-index:1;
+      background:linear-gradient(90deg,rgba(8,15,28,.82) 0%,rgba(8,15,28,.28) 62%,rgba(8,15,28,.08) 100%);
+    }
+    .visual-kicker {
+      position:relative; z-index:2;
+      color:#e2e8f0; font:500 .52rem "DM Mono",monospace;
+      text-transform:uppercase; letter-spacing:.1em;
+      text-shadow:0 1px 5px rgba(0,0,0,.6);
+    }
     .visual-title {
-      position:absolute; left:15px; bottom:15px;
+      position:absolute; z-index:2; left:15px; bottom:15px;
       max-width:68%; font-size:1.02rem; font-weight:800; line-height:1.15;
-    }
-    .visual-bars {
-      position:absolute; right:15px; left:35%; bottom:15px;
-      height:90px; display:flex; gap:5px; align-items:flex-end;
-    }
-    .visual-bars span {
-      flex:1; border-radius:4px 4px 0 0;
-      background:linear-gradient(to top,rgba(37,99,235,.20),rgba(103,232,249,.72));
-      animation:barUp .9s cubic-bezier(.2,.8,.2,1) both;
-    }
-    .visual-bars span:nth-child(1){height:26%;animation-delay:.03s}
-    .visual-bars span:nth-child(2){height:42%;animation-delay:.08s}
-    .visual-bars span:nth-child(3){height:34%;animation-delay:.13s}
-    .visual-bars span:nth-child(4){height:57%;animation-delay:.18s}
-    .visual-bars span:nth-child(5){height:48%;animation-delay:.23s}
-    .visual-bars span:nth-child(6){height:71%;animation-delay:.28s}
-    .visual-bars span:nth-child(7){height:61%;animation-delay:.33s}
-    .visual-bars span:nth-child(8){height:83%;animation-delay:.38s}
-    .visual-ring {
-      position:absolute; right:20px; top:21px;
-      width:58px; height:58px; border-radius:50%;
-      border:6px solid rgba(255,255,255,.10);
-      border-top-color:#67e8f9; border-right-color:#60a5fa;
-      transform:rotate(25deg);
-      animation:spin 5s linear infinite;
+      text-shadow:0 1px 8px rgba(0,0,0,.7);
     }
     .project-body { display:flex; flex-direction:column; flex:1; padding:18px; }
     .tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
@@ -950,9 +935,8 @@
         <div class="project-grid" id="projectGrid">
           <article class="project featured reveal" data-tags="excel sql powerbi">
             <div class="project-visual">
+              <img class="project-thumbnail" src="https://raw.githubusercontent.com/ErSKM/retail-sales-analysis/main/images/powerbi_dashboard.png" alt="Power BI dashboard preview showing retail sales KPIs and trends" loading="lazy" decoding="async">
               <div class="visual-kicker">Featured · End-to-End</div>
-              <div class="visual-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-              <div class="visual-ring"></div>
               <div class="visual-title">Retail Sales Analysis</div>
             </div>
             <div class="project-body">
@@ -974,8 +958,8 @@
 
           <article class="project reveal" data-tags="excel">
             <div class="project-visual">
+              <img class="project-thumbnail" src="https://raw.githubusercontent.com/ErSKM/hiring-process-analytics-excel/main/dashboard.png" alt="Excel dashboard preview for hiring process analytics" loading="lazy" decoding="async">
               <div class="visual-kicker">Excel Analytics</div>
-              <div class="visual-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="visual-title">Hiring Process Analytics</div>
             </div>
             <div class="project-body">
@@ -996,8 +980,8 @@
 
           <article class="project reveal" data-tags="sql">
             <div class="project-visual">
+              <img class="project-thumbnail" src="https://raw.githubusercontent.com/ErSKM/world-layoffs-sql/main/q11_top5_per_year.png" alt="SQL analysis chart ranking companies by layoffs within each year" loading="lazy" decoding="async">
               <div class="visual-kicker">SQL Analytics</div>
-              <div class="visual-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="visual-title">World Layoffs Analysis</div>
             </div>
             <div class="project-body">
@@ -1018,8 +1002,8 @@
 
           <article class="project reveal" data-tags="python">
             <div class="project-visual">
+              <img class="project-thumbnail" src="https://erskm.github.io/assets/projects/ecommerce-monthly-revenue.png" alt="Monthly revenue trend chart from the e-commerce Python analysis" loading="lazy" decoding="async">
               <div class="visual-kicker">Python · Customer Analytics</div>
-              <div class="visual-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="visual-title">E-Commerce + RFM</div>
             </div>
             <div class="project-body">
@@ -1039,8 +1023,8 @@
 
           <article class="project reveal" data-tags="python sql">
             <div class="project-visual">
+              <img class="project-thumbnail" src="https://raw.githubusercontent.com/ErSKM/olist-ecommerce-analysis/main/visuals/01_revenue_by_category.png" alt="Olist e-commerce revenue by product category chart" loading="lazy" decoding="async">
               <div class="visual-kicker">Advanced · Python + SQL + ML</div>
-              <div class="visual-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="visual-title">Olist E-Commerce Analytics</div>
             </div>
             <div class="project-body">

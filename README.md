@@ -2,15 +2,16 @@
 
 Live portfolio: [erskm.github.io](https://erskm.github.io)
 
-This repository contains the static portfolio site for my analytics projects, skills, and professional links. Project cards link to their source repositories and show previews of the actual dashboards or analysis visuals.
+This repository contains the static portfolio site for my analytics work, skills, and professional links. The project portfolio focuses on retail and e-commerce analysis, with thumbnails linking to the relevant dashboards or analysis visuals.
 
 ## Featured work
 
-- [Retail Sales Analysis](https://github.com/ErSKM/retail-sales-analysis) — Excel, MySQL, and Power BI
-- [Hiring Process Analytics](https://github.com/ErSKM/hiring-process-analytics-excel) — Excel and Power Query
-- [World Layoffs SQL Analysis](https://github.com/ErSKM/world-layoffs-sql) — MySQL
-- [E-Commerce Sales and RFM](https://github.com/ErSKM/ecommerce-sales-analysis) — Python and Pandas
-- [Olist E-Commerce Analysis](https://github.com/ErSKM/olist-ecommerce-analysis) — Python, SQLite, SQL, and machine learning
+- [Retail Sales Analysis](https://github.com/ErSKM/retail-sales-analysis) — Excel, MySQL, and Power BI; retail sales and gross-profit reporting
+- [E-Commerce Sales and Customer Analysis](https://github.com/ErSKM/ecommerce-sales-analysis) — Python and Pandas; transaction trends and rule-based RFM analysis
+- [Olist E-Commerce Analysis](https://github.com/ErSKM/olist-ecommerce-analysis) — Python, SQLite, and SQL; delivery, customer-review, and payment analysis
+- [World Layoffs SQL Analysis](https://github.com/ErSKM/world-layoffs-sql) — MySQL; supporting example of SQL cleaning, CTEs, and window functions
+
+Hiring Process Analytics is retained in its archived repository as supporting work and is no longer featured as a primary target project.
 
 ## Preview locally
 

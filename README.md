@@ -6,6 +6,7 @@ This repository contains the static portfolio site for my analytics work, skills
 
 ## Featured work
 
+- [Supply Chain Delivery & Profitability Analysis](https://github.com/ErSKM/supply-chain-delivery-profitability-analysis) — MySQL and Power BI; order-level delivery reliability, sales, reported profitability, and dashboard storytelling
 - [Retail Sales Analysis](https://github.com/ErSKM/retail-sales-analysis) — Excel, MySQL, and Power BI; retail sales and gross-profit reporting
 - [E-Commerce Sales and Customer Analysis](https://github.com/ErSKM/ecommerce-sales-analysis) — Python and Pandas; transaction trends and rule-based RFM analysis
 - [Olist E-Commerce Analysis](https://github.com/ErSKM/olist-ecommerce-analysis) — Python, SQLite, and SQL; delivery, customer-review, and payment analysis
